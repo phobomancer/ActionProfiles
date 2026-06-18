@@ -1,0 +1,8 @@
+## Interface: 68101
+## Title: Action Profiles
+## Notes: Written by Phobowarrior for Phobowarrior
+## Version: 0.0.1-alpha1
+## SavedVariablesPerCharacter: ActionProfiles
+## Author: Phobowarrior
+
+ActionProfiles.lua
