@@ -1,7 +1,7 @@
-## Interface: 68101
+## Interface: 16001
 ## Title: Action Profiles
 ## Notes: Written by Phobowarrior for Phobowarrior
-## Version: 0.0.1-alpha1
+## Version: 0.0.1
 ## SavedVariablesPerCharacter: ActionProfiles
 ## Author: Phobowarrior
 

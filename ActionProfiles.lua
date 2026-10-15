@@ -9,7 +9,7 @@ SlashCmdList["ActPro"] = function(msg)
 
 	if args[1] == "help" then
 		print("TODO:")
-		print("COMMANDS")
+		print("Commands: save restore list remove")
 		
 	elseif args[1] == "list" then
 		print("")
@@ -55,6 +55,7 @@ SlashCmdList["ActPro"] = function(msg)
 		ActionProfiles[args[2]]=abilityPositions
 		print("")
 		print("saved ",args[2])
+
 	elseif args[1] == "restore" then
 		if args[2] == nil then
 			print("a profile name must be provided to restore.")
@@ -68,18 +69,26 @@ SlashCmdList["ActPro"] = function(msg)
 		for i = 1, 120 do
 			if profile[i] ~= nil then
 				if profile[i].abilitytype == "spell" then
-					PickupSpell(profile[i].abilityid)
+					C_Spell.PickupSpell(profile[i].abilityid)
+				-- it is possible to have several macros with the same name if 
+				-- this happens the first macro with that name is selected
+				-- best practice don't have two macros with the same name
 				elseif profile[i].abilitytype == "macro" then
 					PickupMacro(profile[i].abilityid)
 				elseif profile[i].abilitytype == "item" then
-					PickupItem(profile[i].abilityid)
+					C_Item.PickupItem(profile[i].abilityid)
 				end
 				PlaceAction(i)
 				ClearCursor()
+			else
+				-- if there is no content for action bar slot then clear it
+				PickupAction(i)
+				ClearCursor()
+				
 			end
 		end
 	else
-		print("use `/decliner help` to see available commands")
+		print("use `/ap help` to see available commands")
 	end
 
 end
