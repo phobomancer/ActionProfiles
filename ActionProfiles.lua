@@ -42,7 +42,8 @@ SlashCmdList["ActPro"] = function(msg)
 				-- print(abilitytype, abilityid)
 				if abilitytype == "macro"
 				then
-					abilityid = GetMacroInfo(abilityid)
+					local macroname = GetActionText(i)
+					abilityid = macroname
 				end
 				ability = {
 					["abilitytype"]=abilitytype,
@@ -73,6 +74,8 @@ SlashCmdList["ActPro"] = function(msg)
 				-- it is possible to have several macros with the same name if 
 				-- this happens the first macro with that name is selected
 				-- best practice don't have two macros with the same name
+				-- it is also possible to have used macros by their index number
+				-- but that can change if other macros are added or removed
 				elseif profile[i].abilitytype == "macro" then
 					PickupMacro(profile[i].abilityid)
 				elseif profile[i].abilitytype == "item" then
