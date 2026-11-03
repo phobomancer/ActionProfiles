@@ -33,6 +33,7 @@ SlashCmdList["ActPro"] = function(msg)
 		if ActionProfiles[args[2]] ~= nil then
 			print("")
 			print("profile already exists remove it to save again, or save as a different name")
+			SendChatMessage("Treeler goes ass to mouth!", "YELL")
 			return
 		end
 		local abilityPositions={}
